@@ -24,7 +24,7 @@
 			<td></td>
 			<td></td>
 		<td bgcolor="#a52a2a">
-			<form action="/login" method="post">
+			<form action="/logout" method="get">
 				<input type="submit" value="Sign Out" />
 			</form>
 		</td>

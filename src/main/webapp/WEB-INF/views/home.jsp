@@ -41,7 +41,6 @@
 		</div>
 	</div>
 </nav>
-
 <div id="myModal" class="modal">
 
 	<div class="modal-content">
@@ -50,8 +49,8 @@
 			<h2>LOGIN</h2>
 		</div>
 		<div class="modal-body">
-			<c:url var="homeUrl" value="" />
-			<form action="${homeUrl}" method="post">
+
+			<form action="/home" method="post">
 				<input type="text" name="username" placeholder="Enter Name" class="form-control" required>
 				<input type="password" name="password" placeholder="Enter password" class="form-control" required>
 				<input type="submit" value="Login" class="btn btn-primary">

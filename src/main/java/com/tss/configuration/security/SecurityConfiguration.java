@@ -74,7 +74,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(ADMIN_DBA_RESOURCE_LIST).access(Constants.ADMIN_DBA_ACCESS)
                 .anyRequest().permitAll()
                 .and()
-                .formLogin().loginPage("/home").loginProcessingUrl("/home")
+                .formLogin().loginPage("/home")
                 .usernameParameter("username").passwordParameter("password")
                 .and()
                 .logout().logoutSuccessUrl("/login?logout")
