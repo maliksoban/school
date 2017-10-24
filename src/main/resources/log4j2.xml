@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="30" status="debug">
+    <!-- monitorInterval: automatic reload every 30sec on changes -->
+    <!-- status: log4j2 internal logging (not for the app) -->
+
+    <Properties>
+        <Property name="logsSMS">logs/inventoryLogs.log</Property>
+    </Properties>
+    <Appenders>
+        <!-- the standard-console-appender -->
+        <Console name="appender-Console-all" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${logsSMS}"
+                                 filePattern="${catalina.home}/$${date:yyyy-MM}/app-%d{yyyy-MM-dd-HH}-%i.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="1000 MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.websystique.springmvc.interceptor.AuthenticatorInterceptor" level="debug" additivity="false">
+            <AppenderRef ref="RollingRandomAccessFile"/>
+        </Logger>
+        <!-- Every configuration must have a root logger. If one is not configured the default root LoggerConfig is ERROR with Console appender attached. -->
+        <Root level="trace">
+            <AppenderRef ref="RollingRandomAccessFile" level="ALL"/>
+        </Root>
+    </Loggers>
+</Configuration>
+
